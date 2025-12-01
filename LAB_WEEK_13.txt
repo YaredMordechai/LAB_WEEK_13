@@ -1,0 +1,21 @@
+ASSIGNMENT
+1. Why is MVVM important? Which files represent Model, which files represent
+View, and which files represent ViewModel?
+2. In Part 1, you implemented Data Binding, why is this more efficient than using
+the normal method?
+3. In Part 2, you implemented the Singleton Pattern, why is this important?
+4. In Part 2 & 3, you implemented the Repository Pattern, why is this important?
+5. In part 3, you implemented the Worker Manager, is there another way to refresh
+your database with the latest data other than using Worker?
+
+
+Jawab:
+1. MVVM penting karena memisahkan antara tampilan dan logika data sehingga aplikasi lebih mudah dikembangkan, dirawat, serta diuji, karena perubahan pada UI tidak memengaruhi logika dan sebaliknya. Pada project ini yang menjadi Model adalah Movie.kt, MovieDao.kt, dan MovieDatabase.kt, kemudian View adalah layout XML serta MainActivity.kt, sedangkan ViewModel diwakili oleh MovieViewModel.kt.
+
+2. Data Binding lebih efisien dibandingkan dengan metode biasa seperti findViewById karena Data Binding memungkinkan View langsung terhubung dengan ViewModel sehingga pembaruan data pada UI terjadi otomatis tanpa harus memanggil setText atau adapter secara manual, sehingga kode lebih singkat, bersih, dan mudah dipelihara.
+
+3. Singleton Pattern pada Part 2 penting karena memastikan hanya ada satu instance database Room selama aplikasi berjalan. Hal ini mencegah penggunaan memori berlebih, menghindari konflik akses data oleh beberapa thread, serta menjaga konsistensi data sehingga database tidak dibuat berkali-kali.
+
+4. Repository Pattern pada Part 2 dan 3 penting karena berfungsi sebagai perantara antara API dan database, sehingga UI tidak perlu mengetahui sumber data yang digunakan apakah berasal dari server atau dari Room. Dengan adanya repository, aplikasi dapat tetap menampilkan data saat offline dan data bisa diperbarui di latar belakang dengan lebih terstruktur serta mudah dikembangkan.
+
+5. Selain WorkManager, pembaruan database secara otomatis juga dapat dilakukan dengan AlarmManager, Foreground Service, JobScheduler, ataupun pembaruan manual ketika pengguna melakukan refresh. Namun WorkManager tetap merupakan cara paling ideal karena dapat berjalan terjadwal bahkan ketika aplikasi tidak sedang digunakan.
